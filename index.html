@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avion - Современная мебель для дома</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #2f2f2f;
+            background-color: #ffffff;
+        }
+
+        :root {
+            --color-dark-primary: #2a2a2a;
+            --color-primary: #4253dc;
+            --color-light-gray: #f5f5f5;
+            --color-border-gray: #e0e0e0;
+            --color-white: #ffffff;
+            --color-text: #2f2f2f;
+            --color-text-light: #6f6f6f;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--color-dark-primary);
+        }
+
+        h2 {
+            font-size: 32px;
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--color-dark-primary);
+        }
+
+        h3 {
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--color-dark-primary);
+        }
+
+        h4 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--color-dark-primary);
+        }
+
+        h5 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--color-dark-primary);
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--color-text-light);
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #3144b8;
+        }
+
+        button {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-weight: 500;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .flex-between {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .gap-1 { gap: 10px; }
+        .gap-2 { gap: 20px; }
+        .gap-3 { gap: 30px; }
+        .gap-4 { gap: 40px; }
+
+        .grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .grid-4 {
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        }
+
+        .py-3 { padding: 40px 0; }
+        .py-4 { padding: 60px 0; }
+        .py-5 { padding: 80px 0; }
+
+        .mb-2 { margin-bottom: 20px; }
+        .mb-3 { margin-bottom: 30px; }
+        .mb-4 { margin-bottom: 40px; }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--color-text-light); }
+
+        header {
+            background: var(--color-white);
+            border-bottom: 1px solid var(--color-border-gray);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-top {
+            padding: 15px 0;
+        }
+
+        .header-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--color-dark-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .logo img {
+            height: 32px;
+            width: auto;
+        }
+
+        .logo span {
+            display: none;
+        }
+
+        .header-icons-left,
+        .header-icons-right {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .header-icons-left button,
+        .header-icons-right button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .header-icons-left img,
+        .header-icons-right img {
+            height: 24px;
+            width: 24px;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .header-icons-left button:hover img,
+        .header-icons-right button:hover img {
+            opacity: 1;
+        }
+
+        nav.main-nav {
+            display: none;
+        }
+
+        .hero {
+            background: var(--color-white);
+            padding: 0;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            align-items: stretch;
+        }
+
+        .hero > .container {
+            max-width: 100%;
+            padding: 0;
+        }
+
+        .hero-text {
+            background: #2a2a3e;
+            color: white;
+            padding: 80px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 30px;
+            line-height: 1.3;
+            color: white;
+        }
+
+        .hero p {
+            font-size: 16px;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .hero-image {
+            background: #7DAFB8;
+            border-radius: 0;
+            overflow: hidden;
+            height: auto;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .btn-primary {
+            background: #f5f5f5;
+            color: #ffffff;
+            padding: 12px 32px;
+            border-radius: 2px;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid #ffffff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            background-color: transparent;
+        }
+
+        .hero-text .btn-primary {
+            background-color: #ffffff;
+            color: #2a2a3e;
+        }
+
+        .btn-primary:hover {
+            background-color: #e6e6e6;
+            color: #2a2a3e;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .brand-features {
+            background: var(--color-white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        .feature-card {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--color-light-gray);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-icon img {
+            width: 28px;
+            height: 28px;
+        }
+
+        .feature-card h4 {
+            font-size: 18px;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: var(--color-text-light);
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            color: var(--color-dark-primary);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .product-card {
+            background: var(--color-white);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .popular-products .products-grid {
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .popular-products .product-card:first-child {
+            grid-row: span 1;
+        }
+
+        .popular-products .product-card:first-child .product-image {
+            height: 280px;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+            background: var(--color-light-gray);
+            height: 280px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 16px;
+        }
+
+        .product-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--color-dark-primary);
+            margin-bottom: 8px;
+        }
+
+        .product-price {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--color-dark-primary);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-primary);
+            padding: 10px 0;
+            border: none;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: underline;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .btn-secondary:hover {
+            color: #3144b8;
+        }
+
+        .newsletter {
+            background: var(--color-light-gray);
+        }
+
+        .newsletter-content-centered {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .newsletter-text {
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .newsletter p {
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .newsletter-form input {
+            padding: 12px 16px;
+            border: 1px solid var(--color-border-gray);
+            border-radius: 4px;
+            font-size: 14px;
+            min-width: 300px;
+        }
+
+        .newsletter-form button {
+            padding: 12px 24px;
+            background: #2a2a3e;
+            color: white;
+            font-weight: 600;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--color-primary);
+        }
+
+        .newsletter-image {
+            background: var(--color-light-gray);
+            height: 300px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .newsletter-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about {
+            background: var(--color-white);
+            padding: 0;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            max-width: 100%;
+            margin: 0;
+        }
+
+        .about-text {
+            padding: 80px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .about-title {
+            font-size: 36px;
+            margin-bottom: 30px;
+            font-weight: 600;
+            color: var(--color-dark-primary);
+            line-height: 1.3;
+            text-align: left;
+        }
+
+        .about p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: var(--color-text-light);
+            text-align: left;
+        }
+
+        .about-link {
+            font-weight: 600;
+            color: var(--color-primary);
+            text-decoration: none;
+            font-size: 16px;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        .about-link:hover {
+            color: #3144b8;
+            text-decoration: underline;
+        }
+
+        .about-image {
+            background: #c9a97a;
+            height: 500px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        footer {
+            background: #2a2a3e;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 60px;
+            margin-bottom: 60px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 60px;
+        }
+
+        .footer-column h4 {
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: white;
+        }
+
+        .footer-newsletter {
+            display: flex;
+            gap: 10px;
+        }
+
+        .footer-newsletter input {
+            flex: 1;
+            padding: 12px 16px;
+            border: none;
+            border-radius: 2px;
+            font-size: 14px;
+            background: white;
+            color: #2a2a2a;
+        }
+
+        .footer-newsletter input::placeholder {
+            color: #999;
+        }
+
+        .footer-newsletter button {
+            padding: 12px 24px;
+            background: white;
+            color: #2a2a2a;
+            font-weight: 600;
+            border-radius: 2px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 14px;
+        }
+
+        .footer-newsletter button:hover {
+            background: #f0f0f0;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding-top: 0;
+            border-top: none;
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: white;
+            border-radius: 3px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .social-links a:hover {
+            background: #e0e0e0;
+            transform: scale(1.1);
+        }
+
+        .social-links img {
+            width: 14px;
+            height: 14px;
+            filter: brightness(0);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content,
+            .newsletter-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            nav.main-nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            .products-grid,
+            .features-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="header-wrapper">
+                    <div class="header-icons-left">
+                        <button type="button" aria-label="Search">
+                            <img src="assets/icons/search.png" alt="Search">
+                        </button>
+                    </div>
+                    <div class="logo">
+                        <img src="assets/icons/Logo.png" alt="Avion Logo">
+                    </div>
+                    <div class="header-icons-right">
+                        <button type="button" aria-label="Shopping Cart">
+                            <img src="assets/icons/shop-cart.png" alt="Cart">
+                        </button>
+                        <button type="button" aria-label="User Profile">
+                            <img src="assets/icons/profile.png" alt="Profile">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>The furniture brand for the future, with timeless designs</h1>
+                        <p>A new era in eco friendly furniture with Avion, the French luxury retail brand with nice fonts, tasteful colors and a beautiful way to display things digitally using modern web technologies.</p>
+                        <button class="btn-primary">View collection</button>
+                    </div>
+                    <div class="hero-image">
+                        <img src="assets/img/Right-image.png" alt="Modern furniture showcase">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="brand-features py-5">
+            <div class="container">
+                <h2 class="section-title text-center mb-4">What makes our brand different</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <img src="assets/icons/delivery.png" alt="Delivery icon">
+                        </div>
+                        <h4>Next day as standard</h4>
+                        <p>Order before 3pm and get your order the next day as standard</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <img src="assets/icons/check.png" alt="Quality icon">
+                        </div>
+                        <h4>Made by true artisans</h4>
+                        <p>Handmade crafted goods made with real passion and craftmanship</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <img src="assets/icons/card.png" alt="Price icon">
+                        </div>
+                        <h4>Unbeatable prices</h4>
+                        <p>For our materials and quality you won't find better prices anywhere</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <img src="assets/icons/recycle.png" alt="Recycle icon">
+                        </div>
+                        <h4>Recycled packaging</h4>
+                        <p>We use 100% recycled packaging to ensure our footprint is manageable</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="new-ceramics py-5" id="ceramics">
+            <div class="container">
+                <div class="flex-between mb-3">
+                    <h2 class="section-title">New ceramics</h2>
+                </div>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="assets/img/dandy-chair.png" alt="The Dandy chair">
+                        </div>
+                        <div class="product-info">
+                            <h5 class="product-name">The Dandy chair</h5>
+                            <p class="product-price">£250</p>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="assets/img/vase-set.png" alt="Rustic Vase Set">
+                        </div>
+                        <div class="product-info">
+                            <h5 class="product-name">Rustic Vase Set</h5>
+                            <p class="product-price">£155</p>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="assets/img/silky-vase.png" alt="The Silky Vase">
+                        </div>
+                        <div class="product-info">
+                            <h5 class="product-name">The Silky Vase</h5>
+                            <p class="product-price">£125</p>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="assets/img/lucy-lamp.png" alt="The Lucy Lamp">
+                        </div>
+                        <div class="product-info">
+                            <h5 class="product-name">The Lucy Lamp</h5>
+                            <p class="product-price">£399</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-secondary">View collection</button>
+            </div>
+        </section>
+        <section class="popular-products py-5">
+            <div class="container">
+                <h2 class="section-title">Our popular products</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="assets/img/poplar-sofa.png" alt="The Poplar suede sofa">
+                        </div>
+                        <div class="product-info">
+                            <h5 class="product-name">The Poplar suede sofa</h5>
+                            <p class="product-price">£980</p>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="assets/img/dandy-chair.png" alt="The Dandy chair">
+                        </div>
+                        <div class="product-info">
+                            <h5 class="product-name">The Dandy chair</h5>
+                            <p class="product-price">£250</p>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="assets/img/dandy-chair.png" alt="The Dandy chair">
+                        </div>
+                        <div class="product-info">
+                            <h5 class="product-name">The Dandy chair</h5>
+                            <p class="product-price">£250</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-secondary">View collection</button>
+            </div>
+        </section>
+        <section class="newsletter py-5">
+            <div class="container">
+                <div class="newsletter-content-centered">
+                    <div class="newsletter-text">
+                        <h2>Join the club and get the benefits</h2>
+                        <p>Sign up for our newsletter and receive exclusive offers on new ranges, sales, pop up stores and more</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="your@email.com" required>
+                            <button type="submit">Sign up</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="about">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="about-title">From a studio in London to a global brand with over 400 outlets</h2>
+                    <p>When we started Avion, the idea was simple. Make high quality furniture affordable and available for the mass market.</p>
+                    <p>Handmade, and lovingly crafted furniture and homeware is what we live, breathe and design so our Chelsea boutique become the hotbed for the London interior design community.</p>
+                    <a href="#" class="about-link">Get in touch</a>
+                </div>
+                <div class="about-image">
+                    <img src="assets/img/Right-image-2.png" alt="Sofa with decorative pillows">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Menu</h4>
+                    <ul>
+                        <li><a href="#new">New arrivals</a></li>
+                        <li><a href="#bestsellers">Best sellers</a></li>
+                        <li><a href="#viewed">Recently viewed</a></li>
+                        <li><a href="#popular">Popular this week</a></li>
+                        <li><a href="#all">All products</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#crockery">Crockery</a></li>
+                        <li><a href="#furniture">Furniture</a></li>
+                        <li><a href="#homeware">Homeware</a></li>
+                        <li><a href="#plant">Plant pots</a></li>
+                        <li><a href="#chairs">Chairs</a></li>
+                        <li><a href="#crockery2">Crockery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Our company</h4>
+                    <ul>
+                        <li><a href="#about">About us</a></li>
+                        <li><a href="#vacancies">Vacancies</a></li>
+                        <li><a href="#contact">Contact us</a></li>
+                        <li><a href="#privacy">Privacy</a></li>
+                        <li><a href="#returns">Returns policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Join our mailing list</h4>
+                    <form class="footer-newsletter">
+                        <input type="email" placeholder="your@email.com" required>
+                        <button type="submit">Sign up</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; Copyright 2022 Avion LTD</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
