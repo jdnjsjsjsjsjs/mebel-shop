@@ -783,6 +783,33 @@
             .masonry-grid {
                 column-count: 1;
             }
+
+            footer {
+                overflow-x: hidden;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+
+            .footer-column:last-child {
+                grid-column: 1 / -1;
+                max-width: 420px;
+                margin: 0 auto;
+                text-align: center;
+            }
+
+            .footer-newsletter {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .footer-newsletter input,
+            .footer-newsletter button {
+                width: 100%;
+            }
         }
 
         @media (max-width: 426px) {
