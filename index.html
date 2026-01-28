@@ -7,7 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/mobile.css" media="screen and (max-width: 1024px)">
 </head>
 <body>
     <header>
@@ -25,10 +26,18 @@
                         <img src="assets/icons/Logo.png" alt="Avion Logo">
                     </div>
 
-                    <nav class="main-nav">
-                        <a href="#ceramics">Ceramics</a>
-                        <a href="#popular">Popular</a>
-                        <a href="#about">About</a>
+                    <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню" aria-expanded="false">
+                        <span class="menu-toggle_line"></span>
+                        <span class="menu-toggle_line"></span>
+                        <span class="menu-toggle_line"></span>
+                    </button>
+
+                    <nav class="nav" id="mainNav">
+                        <ul class="nav__list">
+                            <li class="nav__item"><a href="#ceramics" class="nav__link">Ceramics</a></li>
+                            <li class="nav__item"><a href="#popular" class="nav__link">Popular</a></li>
+                            <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                        </ul>
                     </nav>
 
                     <div class="header-icons-right">
@@ -70,7 +79,7 @@
                         <div class="feature-icon">
                             <img src="assets/icons/delivery.png" alt="Delivery icon">
                         </div>
-                        <h4>Next day as standard</h4>
+                        <h3>Next day as standard</h3>
                         <p>Order before 3pm and get your order the next day as&nbsp;standard</p>
                     </div>
                     <div class="feature-card">
@@ -109,7 +118,7 @@
                             <img src="assets/img/dandy-chair.png" alt="The Dandy chair">
                         </div>
                         <div class="product-info">
-                            <h5 class="product-name">The Dandy chair</h5>
+                            <h3 class="product-name">The Dandy chair</h3>
                             <p class="product-price">£250</p>
                         </div>
                     </div>
@@ -118,7 +127,7 @@
                             <img src="assets/img/vase-set.png" alt="Rustic Vase Set">
                         </div>
                         <div class="product-info">
-                            <h5 class="product-name">Rustic Vase Set</h5>
+                            <h4 class="product-name">Rustic Vase Set</h4>
                             <p class="product-price">£155</p>
                         </div>
                     </div>
@@ -154,7 +163,7 @@
                             <img src="assets/img/poplar-sofa.png" alt="The Poplar suede sofa">
                         </div>
                         <div class="product-info">
-                            <h5 class="product-name">The Poplar suede sofa</h5>
+                            <h3 class="product-name">The Poplar suede sofa</h3>
                             <p class="product-price">£980</p>
                         </div>
                     </div>
@@ -163,7 +172,7 @@
                             <img src="assets/img/dandy-chair.png" alt="The Dandy chair">
                         </div>
                         <div class="product-info">
-                            <h5 class="product-name">The Dandy chair</h5>
+                            <h3 class="product-name">The Dandy chair</h3>
                             <p class="product-price">£250</p>
                         </div>
                     </div>
@@ -172,7 +181,7 @@
                             <img src="assets/img/dandy-chair.png" alt="The Dandy chair">
                         </div>
                         <div class="product-info">
-                            <h5 class="product-name">The Dandy chair</h5>
+                            <h3 class="product-name">The Dandy chair</h3>
                             <p class="product-price">£250</p>
                         </div>
                     </div>
@@ -242,7 +251,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h4>Menu</h4>
+                    <h3>Menu</h3>
                     <ul>
                         <li><a href="#new">New arrivals</a></li>
                         <li><a href="#bestsellers">Best sellers</a></li>
@@ -317,5 +326,7 @@
             </div>
         </div>
     </footer>
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх">↑</button>
+    <script src="scripts/menu.js"></script>
 </body>
 </html>
